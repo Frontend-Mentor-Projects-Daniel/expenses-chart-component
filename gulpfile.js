@@ -134,8 +134,13 @@ function watchTask() {
   watch('index.html', browserSyncReload);
 
   watch(
-    ['src/sass/**/*.scss', 'src/ts/**/*.ts', '!src/ts/tests/*.ts'],
-    series(scssTask, typescriptTask, cacheBustTask, browserSyncReload)
+    ['src/ts/**/*.ts', '!src/ts/tests/*.ts'],
+    series(typescriptTask, cacheBustTask, browserSyncReload)
+  );
+
+  watch(
+    ['src/sass/**/*.scss'],
+    series(scssTask, cacheBustTask, browserSyncReload)
   );
   watch('src/assets/images/*', series(imageminTask, browserSyncReload));
 }
