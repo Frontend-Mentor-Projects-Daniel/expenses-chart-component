@@ -1,0 +1,73 @@
+// background
+.bg-soft-red {
+  background-color: hsl(var(--clr-soft-red));
+}
+
+.bg-cyan {
+  background-color: hsl(var(--clr-cyan));
+}
+
+.bg-dark-brown {
+  background-color: hsl(var(--clr-dark-brown));
+}
+
+.bg-medium-brown {
+  background-color: hsl(var(--clr-medium-brown));
+}
+
+.bg-cream {
+  background-color: hsl(var(--clr-cream));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.bg-pale-white {
+  background-color: hsl(var(--clr-pale-white));
+}
+
+.bg-bright-cyan:hover {
+  background-color: hsl(var(--clr-bright-cyan));
+}
+
+.bg-bright-soft-red:hover {
+  background-color: hsl(var(--clr-bright-soft-red));
+}
+
+// text
+.text-soft-red {
+  color: hsl(var(--clr-soft-red));
+}
+
+.text-cyan {
+  color: hsl(var(--clr-cyan));
+}
+
+.text-dark-brown {
+  color: hsl(var(--clr-dark-brown));
+}
+
+.text-medium-brown {
+  color: hsl(var(--clr-medium-brown));
+}
+
+.text-cream {
+  color: hsl(var(--clr-cream));
+}
+
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+.text-pale-white {
+  color: hsl(var(--clr-pale-white));
+}
+
+.text-bright-cyan:hover {
+  color: hsl(var(--clr-bright-cyan));
+}
+
+.text-bright-soft-red:hover {
+  color: hsl(var(--clr-bright-soft-red));
+}

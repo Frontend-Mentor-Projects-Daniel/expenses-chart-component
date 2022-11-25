@@ -1,17 +1,19 @@
-/* @link https://utopia.fyi/space/calculator?c=375,15,1.2,1440,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-/* @link https://utopia.fyi/grid/calculator?c=375,15,1.2,1440,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-/* @link https://utopia.fyi/grid/calculator?c=375,15,1.2,1332,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,2xl,12 */
+/* @link https://utopia.fyi/space/calculator?c=375,15,1.2,1440,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|10|15,4xl-s&g=s,l,xl,12 */
 
 :root {
   // COLOURS
-  // primary
-  --clr-soft-red: 10, 79%, 65%;
-  --clr-cyan: 186, 34%, 60%;
-  // neutral
+  // primary colors
+  --clr-soft-red: 10, 79%, 64%;
+  --clr-cyan: 186, 35%, 60%;
+  // neutral colors
+  --clr-white: 0, 0%, 100%;
   --clr-dark-brown: 25, 47%, 15%;
-  --clr-medium-brown: 28, 10%, 53%;
-  --clr-cream-white: 27, 66%, 92%;
+  --clr-medium-brown: 27, 10%, 52%;
+  --clr-cream: 27, 66%, 92%;
   --clr-pale-white: 33, 100%, 98%;
+  // hover colors
+  --clr-bright-cyan: 186, 49%, 80%;
+  --clr-bright-soft-red: 10, 100%, 76%;
 
   // TYPE SCALE
   --step--1: clamp(0.75rem, calc(0.68rem + 0.28vw), 0.94rem);
@@ -30,14 +32,6 @@
   --space-2xl: clamp(3.75rem, calc(3.49rem + 1.13vw), 4.5rem);
   --space-3xl: clamp(5.63rem, calc(5.23rem + 1.69vw), 6.75rem);
 
-  // FLUID GRID
-  --grid-max-width: 83.25rem;
-  --grid-gutter: var(
-    --space-s-l,
-    clamp(0.94rem, calc(0.42rem + 2.19vw), 2.25rem)
-  );
-  --grid-columns: 12;
-
   /* One-up pairs */
   --space-3xs-2xs: clamp(0.25rem, calc(0.14rem + 0.47vw), 0.56rem);
   --space-2xs-xs: clamp(0.5rem, calc(0.37rem + 0.56vw), 0.88rem);
@@ -47,9 +41,14 @@
   --space-l-xl: clamp(1.88rem, calc(1.35rem + 2.25vw), 3.38rem);
   --space-xl-2xl: clamp(2.81rem, calc(2.22rem + 2.54vw), 4.5rem);
   --space-2xl-3xl: clamp(3.75rem, calc(2.69rem + 4.51vw), 6.75rem);
+  --space-4xl-5xl: clamp(9.38rem, calc(6.73rem + 11.27vw), 16.88rem);
 
   /* Custom pairs */
   --space-s-l: clamp(0.94rem, calc(0.48rem + 1.97vw), 2.25rem);
+  --space-s-4xl: clamp(0.94rem, calc(-2.69rem + 15.49vw), 11.25rem);
+  --space-s-5xl: clamp(0.94rem, calc(-4.67rem + 23.94vw), 16.88rem);
+  --space-m-m: clamp(1.44rem, calc(1.35rem + 0.38vw), 1.69rem);
+  --space-3xl-5xl: clamp(5.63rem, calc(1.66rem + 16.9vw), 16.88rem);
 
   // FONT FAMILIES
   --ff-dm-sans: 'DM Sans', sans-serif;
@@ -58,11 +57,8 @@
   --fw-regular: 400;
   --fw-bold: 700;
 }
-
 body {
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  place-items: center;
-
+  background-color: hsl(var(--clr-cream));
   font-family: var(--ff-dm-sans);
+  font-size: var(--step-0);
 }
