@@ -38,11 +38,13 @@
         position: relative;
         transition: background-color 0.2s ease-in-out;
 
-        &:hover {
+        &:hover,
+        &:focus {
           background-color: hsl(var(--clr-bright-soft-red));
         }
 
-        &:hover::after {
+        &:hover::after,
+        &:focus::after {
           content: attr(data-tooltip-value);
           position: absolute;
           top: -50px;
