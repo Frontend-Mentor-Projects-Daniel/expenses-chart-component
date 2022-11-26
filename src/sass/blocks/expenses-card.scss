@@ -45,7 +45,24 @@
   }
 
   &__monthly-totals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+
     border-top: 1px solid hsl(var(--clr-cream));
+    max-width: 26.5625rem;
     padding-top: var(--space-m);
+
+    .current-month {
+      align-self: flex-start;
+    }
+
+    .previous-month {
+      align-self: flex-end;
+
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
 }
