@@ -15,7 +15,7 @@
     <title>Frontend Mentor | Expenses chart component</title>
 
     <!-- SASS -->
-    <link rel="stylesheet" href="./src/css/main.css?cb=1669445245726" />
+    <link rel="stylesheet" href="./src/css/main.css?cb=1669483521736" />
 
     <!-- TYPESCRIPT -->
     <script src="./src/js/bundle.js" defer></script>
@@ -56,7 +56,11 @@
       </header>
 
       <div class="[ expenses-card ]">
-        <h2 class="[ expenses-card__header ]">Spending - Last 7 days</h2>
+        <h2
+          class="[ expenses-card__header ] [ fs-step-1 fw-bold text-dark-brown ]"
+        >
+          Spending - Last 7 days
+        </h2>
 
         <table class="[ expenses-card__chart ]">
           <tbody>
@@ -107,12 +111,12 @@
 
         <div class="[ expenses-card__monthly-totals ]">
           <div class="[ expenses-card__current-month ]">
-            <h3>Total this month</h3>
-            <p>$478.33</p>
+            <h3 class="[ fs-step-0 text-medium-brown ]">Total this month</h3>
+            <p class="[ fs-step-2 fw-bold text-dark-brown ]">$478.33</p>
           </div>
           <div class="[ expenses-card__previous-month ]">
-            <h3>from last month</h3>
-            <p>+2.4%</p>
+            <h3 class="[ fs-step-0 text-medium-brown ]">from last month</h3>
+            <p class="[ fs-step-0 fw-bold text-dark-brown ]">+2.4%</p>
           </div>
         </div>
       </div>
