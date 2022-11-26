@@ -1,0 +1,38 @@
+.expenses-card {
+  margin-top: 1rem;
+
+  &__header {
+    margin-bottom: 3.25rem;
+  }
+
+  &__chart {
+    margin-bottom: 1.5rem;
+    width: 100%;
+
+    tbody {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    tr {
+      flex-grow: 1;
+      flex-basis: 2.0625rem;
+      max-width: 3.125rem;
+
+      display: flex;
+      flex-direction: column-reverse;
+
+      th {
+      }
+
+      td {
+        border: 1px solid black;
+      }
+    }
+  }
+
+  &__monthly-totals {
+    border-top: 1px solid black;
+    padding-top: 1.5rem;
+  }
+}

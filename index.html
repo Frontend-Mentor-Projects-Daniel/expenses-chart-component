@@ -15,7 +15,7 @@
     <title>Frontend Mentor | Expenses chart component</title>
 
     <!-- SASS -->
-    <link rel="stylesheet" href="./src/css/main.css?cb=1669399603786" />
+    <link rel="stylesheet" href="./src/css/main.css?cb=1669445245726" />
 
     <!-- TYPESCRIPT -->
     <script src="./src/js/bundle.js" defer></script>
@@ -38,7 +38,7 @@
     <main class="[ main ]">
       <header class="[ header ] [ bg-soft-red ]">
         <div class="[ header__user-balance ]">
-          <h1 class="[ header__title ] [ text-white fs-step-0 ]">My balance</h1>
+          <h1 class="[ header__title ] [ fs-step-0 text-white ]">My balance</h1>
           <p
             class="[ header__balance-amount ] [ fs-step-1 fw-bold text-pale-white ]"
           >
@@ -55,7 +55,67 @@
         </div>
       </header>
 
-      <div class="[ expenses-card ]"></div>
+      <div class="[ expenses-card ]">
+        <h2 class="[ expenses-card__header ]">Spending - Last 7 days</h2>
+
+        <table class="[ expenses-card__chart ]">
+          <tbody>
+            <tr class="[ monday ]">
+              <th scope="row">mon</th>
+              <td style="height: 174.5px">
+                <p class="[ sr-only ]">$17.45</p>
+              </td>
+            </tr>
+            <tr class="[ tuesday ]">
+              <th scope="row">tue</th>
+              <td style="height: 174.5px">
+                <p class="[ sr-only ]">$17.45</p>
+              </td>
+            </tr>
+            <tr class="[ wednesday ]">
+              <th scope="row">wed</th>
+              <td style="height: 174.5px">
+                <p class="[ sr-only ]">$17.45</p>
+              </td>
+            </tr>
+            <tr class="[ thursday ]">
+              <th scope="row">thu</th>
+              <td style="height: 174.5px">
+                <p class="[ sr-only ]">$17.45</p>
+              </td>
+            </tr>
+            <tr class="[ friday ]">
+              <th scope="row">fri</th>
+              <td style="height: 174.5px">
+                <p class="[ sr-only ]">$17.45</p>
+              </td>
+            </tr>
+            <tr class="[ saturday ]">
+              <th scope="row">sat</th>
+              <td style="height: 174.5px">
+                <p class="[ sr-only ]">$17.45</p>
+              </td>
+            </tr>
+            <tr class="[ sunday ]">
+              <th scope="row">sun</th>
+              <td style="height: 174.5px">
+                <p class="[ sr-only ]">$17.45</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="[ expenses-card__monthly-totals ]">
+          <div class="[ expenses-card__current-month ]">
+            <h3>Total this month</h3>
+            <p>$478.33</p>
+          </div>
+          <div class="[ expenses-card__previous-month ]">
+            <h3>from last month</h3>
+            <p>+2.4%</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="attribution">
