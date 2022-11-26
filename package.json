@@ -1,4 +1,17 @@
 {
+  "name": "expenses-chart-component",
+  "version": "1.0.0",
+  "description": "A chart which fetches data and creates a bar graph based on that data",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp prod",
+    "doc": "npx typedoc",
+    "test": "vitest"
+  },
   "browserslist": [
     "last 1 version",
     "> 1%",
@@ -40,11 +53,20 @@
     "vite": "^3.2.4",
     "vitest": "^0.25.3"
   },
-  "scripts": {
-    "start": "gulp",
-    "build": "gulp prod",
-    "doc": "npx typedoc",
-    "test": "vitest"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frontend-Mentor-Projects-Daniel/expenses-chart-component.git"
   },
-  "description": ""
+  "keywords": [
+    "html",
+    "scss",
+    "typescript",
+    "expenses-chart"
+  ],
+  "author": "Daniel Arzanipour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frontend-Mentor-Projects-Daniel/expenses-chart-component/issues"
+  },
+  "homepage": "https://github.com/Frontend-Mentor-Projects-Daniel/expenses-chart-component#readme"
 }
