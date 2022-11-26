@@ -43,10 +43,11 @@
         }
 
         &:hover::after {
-          content: '$17.45';
+          content: attr(data-tooltip-value);
           position: absolute;
-          top: -25%;
-          left: -13%;
+          top: -50px;
+          left: -20%;
+          z-index: 1;
 
           background-color: hsl(var(--clr-dark-brown));
           border-radius: 5px;
