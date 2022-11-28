@@ -27,11 +27,11 @@
   background-color: hsl(var(--clr-pale-white));
 }
 
-.bg-cyan:hover {
+.bg-cyan.hover:hover {
   background-color: hsl(var(--clr-bright-cyan)) !important;
 }
 
-.bg-soft-red:hover {
+.bg-soft-red.hover:hover {
   background-color: hsl(var(--clr-bright-soft-red));
 }
 

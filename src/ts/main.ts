@@ -37,6 +37,6 @@ window.document.addEventListener('DOMContentLoaded', () => {
     }
 
     // change colour of the day with the highest expenditure
-    highestBarElement.classList.toggle('bg-cyan');
+    highestBarElement.classList.add('bg-cyan', 'hover');
   });
 });
