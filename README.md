@@ -1,97 +1,134 @@
-# Frontend Mentor - Expenses chart component
+# Frontend Mentor - Expenses chart component solution
 
-![Design preview for the Expenses chart component coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Expenses chart component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Testing](#testing)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a decent understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this bar chart component and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-We provide the data for the chart in a local `data.json` file. So you can use that to dynamically add the bars if you choose.
-
-Your users should be able to:
+Users should be able to:
 
 - View the bar chart and hover over the individual bars to see the correct amounts for each day
-- See the current day's bar highlighted in a different colour to the other bars
-- View the optimal layout for the content depending on their device's screen size
+- See the current day’s bar highlighted in a different colour to the other bars (_admittedly I didn't do a good job of reading this part, in the design files, the highest bar was coloured differently and so I thought that the largest expenditure was suppose to be what I should have coloured cyan_)
+- View the optimal layout for the content depending on their device’s screen size
 - See hover states for all interactive elements on the page
-- **Bonus**: See dynamically generated bars based on the data provided in the local JSON file
+- **Bonus**: Use the JSON data file provided to dynamically size the bars on the chart
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+![./screenshot.png](./screenshot.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Links
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- [Live Site URL](https://sage-cupcake-7d8d9a.netlify.app)
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+## My process
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+### Built with
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+- Semantic HTML5 markup
+- SCSS
+- Typescript
+- Gulp
+- Vitest
+- TSDocs
 
-## Building your project
+### What I learned
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- When starting this project, my first thought was what html elements should I be using for the bars and some of the numbers. I wasn't so sure that divs and paragraph elements would be the best semantic choice (_especially since I had heard from a senior software engineer that you shouldn't have empty divs_)
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+  - I thought about using the `meter` and `output` tags but since this chart isn't a form I didn't go along with them
+  - After doing some more research I found an example where I could use a table itself and style it like a bar graph, so I did that
 
-## Deploying your project
+- The title attribute is supposed to be very in-accessible so I used a pseudo element and had that appear on hover and focus and styled it to be my custom tooltip. Since this chart is actually a table it would already be accessible to screen readers so I didn't go through all the trouble of creating a new element and adding aria-roles in order to create a custom tooltip
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+- Typescript would throw errors at me when trying to pass in the type for my fetch request as well as when I tried to catch errors
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+  - For the first problem, I had to use generics to solve them
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+  ```typescript
+  async function getExpenses<T>(url: string): Promise<T> {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      throw new validationError(getErrorMessage(error));
+    }
+  }
+  ```
 
-## Create a custom `README.md`
+  - For the second problem, I found an article by Kent C Dodds where he went over why Typescript would give me problems when using `catch` blocks, it turns out that even when something seems impossible in Javascript, its actually quite possible. I used his solution which was to create this re-usable utility function
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+  ```typescript
+  export function getErrorMessage(error: unknown) {
+    if (error instanceof Error) return error.message;
+    return String(error);
+  }
+  ```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+- I couldn't interact with the bar graph using a keyboard
+  - I had to add a tabIndex value in order to fix it, though this can create frustrating a user experience, in this case it should only be helpful
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+### Testing
 
-## Submitting your solution
+This site/app was tested using:
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+- Firefox, chrome and safari
+- Phone
+- [Html validator](https://validator.w3.org/)
+- Screen reader
+- Chrome extensions
+  - Wave, Axe, Lighthouse
+  - Accessibility insights
+    - Css UnStyler
+    - ColorBlindly
+    - High Contrast
+    - Responsive Viewer
+- vitest
+- Navigating using keyboard
+- viewed on small phone screens eg 320px wide like old iPhone 12 mini or iPhone SE
+- Viewed on those screens in landscape as well as portrait
+- Zoomed in on the screen to 200%
+- Zoomed in to 400%
+- Changed base font size on desktop browser to 32px
+- Changed base font size on desktop to 64px
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+### Continued development
 
-## Sharing your solution
+- I would create an alternative table so that if this interactive bar graph isn't accessible for any reason, people can just look at the table instead
 
-There are multiple places you can share your solution:
+- When attempting to use this on a touch device, you have to press on one of the bars and hold it for the value to display, I would add a fix for this.
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+### Useful resources
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+- [Accessible Graph Charts](https://css-tricks.com/making-charts-with-css/)
+- [Heydon Pickerings Inclusive Components](https://inclusive-components.design/)
+- [Using fetch with generics in typescript](https://www.carlrippon.com/fetch-with-async-await-and-typescript/)
+- [Dealing with catch block errors in typescript](https://kentcdodds.com/blog/get-a-catch-block-error-message-with-typescript)
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+## Author
 
-## Got feedback for us?
+- [Portfolio Website](https://daniel-arzani-portfolio.netlify.app/)
+- [Frontend Mentor Profile](https://www.frontendmentor.io/profile/DanielArzani)
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+## Acknowledgments
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+- The frontend mentor platform for the challenge and the design files
 
-**Have fun building!** 🚀
+- The frontend mentor slack platform which is incredibly helpful for peer review, especially on the topics of accessibility and best practices
