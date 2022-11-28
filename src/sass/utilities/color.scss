@@ -4,7 +4,7 @@
 }
 
 .bg-cyan {
-  background-color: hsl(var(--clr-cyan));
+  background-color: hsl(var(--clr-cyan)) !important;
 }
 
 .bg-dark-brown {
@@ -27,11 +27,11 @@
   background-color: hsl(var(--clr-pale-white));
 }
 
-.bg-bright-cyan:hover {
-  background-color: hsl(var(--clr-bright-cyan));
+.bg-cyan:hover {
+  background-color: hsl(var(--clr-bright-cyan)) !important;
 }
 
-.bg-bright-soft-red:hover {
+.bg-soft-red:hover {
   background-color: hsl(var(--clr-bright-soft-red));
 }
 

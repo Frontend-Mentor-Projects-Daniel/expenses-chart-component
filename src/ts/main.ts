@@ -6,10 +6,16 @@ const days = document.querySelectorAll(
 ) as NodeListOf<HTMLTableCellElement>;
 
 window.document.addEventListener('DOMContentLoaded', () => {
+  let sum = 0;
+  let greatestExpense: barData;
+  let barElement: HTMLTableCellElement;
+  let barValue: Element | null;
+  let highestBarElement: HTMLTableCellElement;
+
   getExpenses<barData[]>('src/data/data.json').then((data) => {
     for (let i = 0; i < data.length; i++) {
-      const barElement = days[i];
-      const barValue = days[i].firstElementChild;
+      barElement = days[i];
+      barValue = days[i].firstElementChild;
 
       if (days.length > 0) {
         barElement.style.height = data[i].amount * 5 + 'px';
@@ -22,6 +28,15 @@ window.document.addEventListener('DOMContentLoaded', () => {
       if (barValue != null) {
         barValue.textContent = '$' + data[i].amount;
       }
+
+      // find the day with the highest expenditure
+      if (sum < data[i].amount) sum = data[i].amount;
+      if (data[i].amount == sum) greatestExpense = data[i];
+      if (barElement.dataset.day === greatestExpense.day)
+        highestBarElement = barElement;
     }
+
+    // change colour of the day with the highest expenditure
+    highestBarElement.classList.toggle('bg-cyan');
   });
 });
