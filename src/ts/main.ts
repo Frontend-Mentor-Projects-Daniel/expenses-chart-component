@@ -1,11 +1,12 @@
 import { getExpenses } from './utils/fetch';
+import { barData } from './utils/types';
 
 const days = document.querySelectorAll(
   '[data-day]'
 ) as NodeListOf<HTMLTableCellElement>;
 
 window.document.addEventListener('DOMContentLoaded', () => {
-  getExpenses('src/data/data.json').then((data) => {
+  getExpenses<barData[]>('src/data/data.json').then((data) => {
     for (let i = 0; i < data.length; i++) {
       const barElement = days[i];
       const barValue = days[i].firstElementChild;
